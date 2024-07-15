@@ -1,24 +1,29 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import LineChart from '../../charts/LineChart01';
-import Icon from '../../images/thumbs-down-solid.svg';
+import Icon from '../../images/thumbs-up-solid.svg';
 import EditMenu from '../../components/DropdownEditMenu';
 
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../../utils/Utils';
+import axios from 'axios'
 
-function DashboardCard02() {
 
+function DashboardCard14() {
+  
   const chartData = {
     labels: [
-
+      '01-03-2024',
+      '02-03-2024',
+      '03-03-2024',
+      '04-03-2024',
+      '05-03-2024',
+      '06-03-2024',
     ],
     datasets: [
       // Indigo line
       {
-        data: [
-   
-        ],
+        data: [0, 5, 7, 3, 9 ,20],
         fill: true,
         backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.08)`,
         borderColor: tailwindConfig().theme.colors.indigo[500],
@@ -26,11 +31,11 @@ function DashboardCard02() {
         tension: 0,
         pointRadius: 0,
         pointHoverRadius: 3,
-          pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
-          pointHoverBackgroundColor: tailwindConfig().theme.colors.indigo[500],
-          pointBorderWidth: 0,
-          pointHoverBorderWidth: 0,          
-          clip: 20,
+        pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+        pointHoverBackgroundColor: tailwindConfig().theme.colors.indigo[500],
+        pointBorderWidth: 0,
+        pointHoverBorderWidth: 0,
+        clip: 20,
       }
     ],
   };
@@ -40,7 +45,7 @@ function DashboardCard02() {
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <img src={Icon} width="32" height="32" alt="Icon 02" />
+          <img src={Icon} width="32" height="32" alt="Icon 01" />
           {/* Menu button */}
           <EditMenu align="right" className="relative inline-flex">
             <li>
@@ -60,14 +65,14 @@ function DashboardCard02() {
             </li>
           </EditMenu>
         </header>
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Page Unlikes</h2>
+        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Page Likes  </h2>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">0</div>
-          <div className="text-sm font-semibold text-white px-1.5 bg-amber-500 rounded-full">-0%</div>
+          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">7</div>
+          <div className="text-sm font-semibold text-white px-1.5 bg-emerald-500 rounded-full">+0%  </div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}
-      <div className="grow max-sm:max-h-[128px] max-h-[128px]">
+      <div className="grow max-sm:max-h-[128px] xl:max-h-[128px]">
         {/* Change the height attribute to adjust the chart height */}
         <LineChart data={chartData} width={389} height={128} />
       </div>
@@ -75,4 +80,4 @@ function DashboardCard02() {
   );
 }
 
-export default DashboardCard02;
+export default DashboardCard14;

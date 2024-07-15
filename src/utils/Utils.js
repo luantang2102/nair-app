@@ -21,9 +21,9 @@ export const hexToRGB = (h) => {
   return `${+r},${+g},${+b}`;
 };
 
-export const formatValue = (value) => Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  maximumSignificantDigits: 3,
-  notation: 'compact',
-}).format(value);
+export const formatValue = (value) => Intl.NumberFormat('en-US').format(value);
+
+export const formatDate = (date) => {
+  const options = { year: 'numeric', month: 'short', day: '2-digit' };
+  return new Date(date).toLocaleDateString('en-US', options);
+};

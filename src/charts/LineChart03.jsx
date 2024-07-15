@@ -12,7 +12,7 @@ import { tailwindConfig, formatValue, formatDate } from '../utils/Utils';
 
 Chart.register(LineController, LineElement, Filler, PointElement, LinearScale, TimeScale, Tooltip);
 
-function LineChart02({
+function LineChart03({
   total,
   data,
   width,
@@ -187,7 +187,7 @@ function LineChart02({
         <div className="flex flex-wrap justify-between items-end">
           <div className="flex items-start">
             <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{total}</div>
-            {/* <div className="text-sm font-semibold text-white px-1.5 bg-amber-500 rounded-full">-22%</div> */}
+            <div className="text-sm font-semibold text-white px-1.5 bg-amber-500 rounded-full">-22%</div>
           </div>
           <div className="grow ml-2 mb-1">
             <ul ref={legend} className="flex flex-wrap justify-end"></ul>
@@ -202,4 +202,4 @@ function LineChart02({
   );
 }
 
-export default LineChart02;
+export default LineChart03;

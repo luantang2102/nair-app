@@ -3,7 +3,7 @@ import LineChart from '../../charts/LineChart02';
 import axios from 'axios';
 import { tailwindConfig } from '../../utils/Utils';
 
-function DashboardCard08({ selectedDate }) {
+function DashboardCard16({ selectedDate }) {
   const [chartData, setChartData] = useState({});
   const [total, setTotal] = useState();
 
@@ -13,21 +13,21 @@ function DashboardCard08({ selectedDate }) {
       const formattedUntilDate = selectedDate[1];
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
-      axios.get(`http://localhost:8080/api/v1/user/facebook/pages/page-impressions?since=${formattedSinceDate}&until=${formattedUntilDate}`, {
+      axios.get(`http://localhost:8080/api/v1/user/facebook/pages/page-fans?since=${formattedSinceDate}&until=${formattedUntilDate}`, {
         headers: {
           'Authorization': auth,
           'Content-Type': 'application/json'
         }
       }).then((result) => {
-        const pageImpressions = result.data[0].pageImpressions;
-        setTotal(pageImpressions.totalImpression);
-        const labels = pageImpressions.impressionsByDayList.map((entry) => entry.date);
-        const data = pageImpressions.impressionsByDayList.map((entry) => entry.value);
+        const pageFan = result.data[0].pageFan;
+        setTotal(pageFan.totalFan);
+        const labels = pageFan.totalFanByDayList.map((entry) => entry.date);
+        const data = pageFan.totalFanByDayList.map((entry) => entry.value);
         setChartData({
           labels: labels,
           datasets: [
             {
-              label: 'Impressions',
+              label: 'Total Likes',
               data: data,
               borderColor: tailwindConfig().theme.colors.indigo[500],
               fill: false,
@@ -49,13 +49,13 @@ function DashboardCard08({ selectedDate }) {
   }, [selectedDate]);
 
   return (
-    <div className="flex flex-col col-span-full sm:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+    <div className="flex flex-col col-span-full 2xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
       <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700 flex items-center">
-        <h2 className="font-semibold text-slate-800 dark:text-slate-100">Post Impressions</h2>
+        <h2 className="font-semibold text-slate-800 dark:text-slate-100">Page Like Overview</h2>
       </header>
       <LineChart total={total} data={chartData} width={800} height={248} />
     </div>
   );
 }
 
-export default DashboardCard08;
+export default DashboardCard16;
