@@ -12,7 +12,7 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     if(localStorage.getItem("token")) {
-      const allowedURLs = ["/inspiration/post"];
+      const allowedURLs = ["nair-web/inspiration/post"];
       if (allowedURLs.includes(location.pathname)) {
         return; // Skip redirection for allowed URLs
       }
@@ -37,9 +37,9 @@ export default function AuthProvider({ children }) {
       };
       handleFetch();
     } else {
-      if (location.pathname !== "/signup") {
+      if (location.pathname !== "/nair-web/signup") {
         setUser({});
-        navigateTo("/signin");
+        navigateTo("/nair-web/signin");
       }
     }
   }, [navigateTo, location.pathname]);
@@ -56,7 +56,7 @@ export default function AuthProvider({ children }) {
               className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               onClick={() => {
                 setSessionExpired(false); 
-                navigateTo("/signin");
+                navigateTo("/nair-web/signin");
               }}
             >
               Sign In

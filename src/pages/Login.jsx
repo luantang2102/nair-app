@@ -7,7 +7,7 @@ export default function LoginPage(){
     const navigateTo = useNavigate();
 
     useEffect(() => {
-        if(localStorage.getItem("token")) navigateTo("/")    
+        if(localStorage.getItem("token")) navigateTo("/nair-web")    
     }, [])
 
     if (localStorage.getItem("token")) return null;
@@ -18,7 +18,7 @@ export default function LoginPage(){
                 heading="Login to your account"
                 paragraph="Don't have an account yet? "
                 linkName="Signup"
-                linkUrl="/signup"
+                linkUrl="/nair-web/signup"
             />
             <Login/>
         </>

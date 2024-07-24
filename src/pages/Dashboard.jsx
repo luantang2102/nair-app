@@ -36,7 +36,7 @@ function Dashboard({ route }) {
   const navigateTo = useNavigate();
 
   useEffect(() => {
-    if(!localStorage.getItem("token")) navigateTo("/signin")
+    if(!localStorage.getItem("token")) navigateTo("/nair-web/signin")
   }, [])
 
   if (!localStorage.getItem("token")) return null;
