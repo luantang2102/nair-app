@@ -11,6 +11,7 @@ export default defineConfig({
     postcss,
   },
   plugins: [react()],
+  base: "/nair-web/",
   resolve: {
     alias: [
       {
