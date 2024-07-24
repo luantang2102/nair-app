@@ -33,7 +33,7 @@ export default function Login() {
                 "email": loginState['email-address'],
                 "password": loginState['password']
             };
-            axios.post('http://localhost:8080/api/v1/auth/login', JSON.stringify(payload), {
+            axios.post('https://nair-social-media-analytics-production.up.railway.app/api/v1/auth/login', JSON.stringify(payload), {
                 headers: {
                     'Content-Type': 'application/json'
                 },

@@ -41,7 +41,7 @@ export default function Signup(){
         "email" : signupState['email-address'],
         "password" : signupState['confirm-password']
       }
-      axios.post('http://localhost:8080/api/v1/auth/register',JSON.stringify(payload), {
+      axios.post('https://nair-social-media-analytics-production.up.railway.app/api/v1/auth/register',JSON.stringify(payload), {
           headers: {
             'Content-Type': 'application/json'
           },    

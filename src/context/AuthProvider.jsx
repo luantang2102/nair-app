@@ -19,7 +19,7 @@ export default function AuthProvider({ children }) {
       const handleFetch = async () => {
         let token = localStorage.getItem("token").replace(/^"|"$/g, '');
         let auth = "Bearer " + token;
-        axios.get('http://localhost:8080/api/v1/user', {
+        axios.get('https://nair-social-media-analytics-production.up.railway.app/api/v1/user', {
           headers: {
             'Authorization': auth,
             'Content-Type': 'application/json'

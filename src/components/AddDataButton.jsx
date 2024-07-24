@@ -9,7 +9,7 @@ function AddDataButton() {
     const handleFetch = () => {
       let token = localStorage.getItem("token").replace(/^"|"$/g, '')
       let auth = "Bearer " + token
-      axios.get('http://localhost:8080/api/v1/user/facebook/authorize-url', {
+      axios.get('https://nair-social-media-analytics-production.up.railway.app/api/v1/user/facebook/authorize-url', {
         headers: {
           'Authorization': auth,
           'Content-Type': 'application/json'

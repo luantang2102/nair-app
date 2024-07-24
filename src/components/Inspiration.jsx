@@ -31,7 +31,7 @@ function Inspiration() {
     const token = localStorage.getItem('token').replace(/^"|"$/g, '');
     const auth = 'Bearer ' + token;
     axios
-      .post('http://localhost:8080/api/v1/user/inspiration/caption', JSON.stringify(payload), {
+      .post('https://nair-social-media-analytics-production.up.railway.app/api/v1/user/inspiration/caption', JSON.stringify(payload), {
         headers: {
           'Authorization': auth,
           'Content-Type': 'application/json'

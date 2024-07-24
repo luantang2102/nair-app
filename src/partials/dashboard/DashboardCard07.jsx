@@ -12,7 +12,7 @@ function DashboardCard07({ selectedDate }) {
       const formattedUntilDate = selectedDate[1];
       let token = localStorage.getItem("token").replace(/^"|"$/g, '')
       let auth = "Bearer " + token
-      axios.get(`http://localhost:8080/api/v1/user/facebook/pages/page-post-performance?since=${formattedSinceDate}&until=${formattedUntilDate}`, {
+      axios.get(`https://nair-social-media-analytics-production.up.railway.app/api/v1/user/facebook/pages/page-post-performance?since=${formattedSinceDate}&until=${formattedUntilDate}`, {
           headers: {
             'Authorization': auth,
             'Content-Type': 'application/json'
